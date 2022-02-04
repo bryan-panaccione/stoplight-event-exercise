@@ -1,6 +1,6 @@
 //(function() {
 //this is IIFE - putting everything int his function to prevent polluting the global name space
-'use strict';
+//'use strict';
 
 
 //})();
@@ -12,9 +12,16 @@ const slowBulb = document.getElementById('slowLight')
 const goButton = document.getElementById('goButton')
 const goBulb = document.getElementById('goLight')
 
+const allButts = document.querySelectorAll('.button')
+//console.log(allButts)
+allButts.forEach(button => {
+  button.addEventListener('click', () => console.log(`Clicked ${button.innerText}`))
+})
 //event listeners
 //lights on and off
 stopButton.addEventListener('click', () => stopBulb.classList.toggle('stop'))
+//allButts.addEventListener('mouseenter', buttonClickLog)
+
 slowButton.addEventListener('click', () => slowBulb.classList.toggle('slow'))
 goButton.addEventListener('click', () => goBulb.classList.toggle('go'))
 
@@ -27,9 +34,10 @@ slowButton.addEventListener('mouseleave', () => console.log(`"Left Slow button"`
 
 goButton.addEventListener('mouseenter', () => console.log(`"Entered Go button"`))
 goButton.addEventListener('mouseleave', () => console.log(`"Left Go button"`))
-//functions 
+//functions
 
-function redLight() {
-  stopBulb.classList.toggle('stop')
-}
+//function buttonClickLog() {
+ // console.log(allButts)
+  //buttonText + `Button`.addEventListener('click', () => console.log(`${buttonText} Button clicked`))
+//}
 
